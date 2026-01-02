@@ -11,15 +11,18 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Főmenü"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:padding="8dp"
+        android:background="@color/yellow"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
 
 
     <TextView
