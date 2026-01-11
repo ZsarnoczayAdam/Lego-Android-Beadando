@@ -30,7 +30,7 @@ public class LegoSetsList extends Fragment {
     private LegoSetAdapter adapter;
     private List<LegoSet> legoSetList = new ArrayList<>();
 
-    private static final String API_KEY = "a0f7d947e86c202d6edbded97fdf5b2a";
+
 
     @Nullable
     @Override
@@ -68,17 +68,18 @@ public class LegoSetsList extends Fragment {
 
     private void loadLegoSets() {
         ApiService api = Retrofitclient.getInstance().create(ApiService.class);
-        api.getSets("Star Wars", 20, "key " + API_KEY) // a "key " előtag szükséges a Rebrickable API-hoz
+        api.getSets("Star Wars", 20)
                 .enqueue(new Callback<LegoSetResponse>() {
                     @Override
                     public void onResponse(Call<LegoSetResponse> call, Response<LegoSetResponse> response) {
                         if(response.isSuccessful() && response.body() != null){
                             legoSetList.clear();
                             legoSetList.addAll(response.body().getResults());
+                            if (adapter != null) {
                             adapter.notifyDataSetChanged();
                         }
                     }
-
+                    }
                     @Override
                     public void onFailure(Call<LegoSetResponse> call, Throwable t) {
                         t.printStackTrace();

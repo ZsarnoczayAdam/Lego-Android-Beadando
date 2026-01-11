@@ -3,11 +3,14 @@ package com.example.lego.api;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
+
 
 public class Retrofitclient {
 
     private static final String BASE_URL = "https://rebrickable.com/api/v3/";
+    private static final String API_KEY = "0cc0e584981311ee67697a5e82a61a5a";
     private static Retrofit retrofit;
 
     public static Retrofit getInstance() {
@@ -20,6 +23,12 @@ public class Retrofitclient {
 
             OkHttpClient client = new OkHttpClient.Builder()
                     .addInterceptor(logging)
+                    .addInterceptor(chain -> {
+                        Request request = chain.request().newBuilder()
+                                .addHeader("Authorization", "key " + API_KEY)
+                                .build();
+                        return chain.proceed(request);
+                    })
                     .build();
 
             retrofit = new Retrofit.Builder()
