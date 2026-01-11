@@ -22,7 +22,7 @@ public class LegoSetDetails extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null){
-            legoSet = (LegoSet) getArguments().getSerializable("legoSet");
+           legoSet = (LegoSet) getArguments().getSerializable("legoSet");
         }
     }
 

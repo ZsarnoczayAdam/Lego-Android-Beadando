@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_sets"
+        android:id="@+id/nav_first"
         android:icon="@android:drawable/ic_menu_gallery"
         android:title="Szettek" />
 
     <item
-        android:id="@+id/nav_parts"
+        android:id="@+id/nav_second"
         android:icon="@android:drawable/ic_menu_gallery"
         android:title="Alkatrészek" />
 
     <item
-        android:id="@+id/nav_favorites"
+        android:id="@+id/nav_third"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Kedvencek" />
 

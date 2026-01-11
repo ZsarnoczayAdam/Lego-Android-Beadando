@@ -40,9 +40,9 @@ public class LegoSetsList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lego_sets_list, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerLegoSets);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new LegoSetAdapter(requireContext(), legoSetList);
+        adapter = new LegoSetAdapter(getContext(), legoSetList);
 
         //  Kattintás egy szettre → részletező fragment
         adapter.setOnLegoSetClickListener(legoSet -> {
