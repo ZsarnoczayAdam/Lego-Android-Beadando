@@ -13,8 +13,8 @@ public interface ApiService {
 
     @GET("lego/sets/")
     Call<LegoSetResponse> getSets(
-            @Query("search") String query,       // keresési kulcsszó, pl. "Star Wars"
-            @Query("page_size") int pageSize,    // hány találatot adjon
+            @Query("search") String query,
+            @Query("page_size") int pageSize,
             @Header("Authorization") String apiKey
     );
 

@@ -44,7 +44,7 @@ public class LegoSetsList extends Fragment {
 
         adapter = new LegoSetAdapter(requireContext(), legoSetList);
 
-        // 🔹 Kattintás egy szettre → részletező fragment
+        //  Kattintás egy szettre → részletező fragment
         adapter.setOnLegoSetClickListener(legoSet -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("legoSet", legoSet);
