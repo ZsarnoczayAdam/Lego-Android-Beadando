@@ -14,6 +14,18 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     private List<String> items;
 
+    // 🔹 interface a kattintásra
+    public interface OnMenuItemClickListener {
+        void onMenuItemClick(String item);
+    }
+
+    private OnMenuItemClickListener listener;
+
+    // 🔹 setter a listener-hez
+    public void setOnMenuItemClickListener(OnMenuItemClickListener listener) {
+        this.listener = listener;
+    }
+
     public MenuAdapter(List<String> items) {
         this.items = items;
     }
@@ -28,7 +40,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(items.get(position));
+        String item = items.get(position);
+        holder.textView.setText(item);
+
+        // 🔹 kattintás kezelése
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onMenuItemClick(item);
+            }
+        });
     }
 
     @Override

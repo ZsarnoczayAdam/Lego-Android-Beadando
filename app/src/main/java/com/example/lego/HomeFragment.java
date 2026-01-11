@@ -31,7 +31,26 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerMenu);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
+        // 🔹 Menüelemek listája
+        List<String> menuItems = new ArrayList<>();
+        menuItems.add("Szettek");
+        menuItems.add("Alkatrészek");
 
+        // 🔹 Adapter létrehozása
+        MenuAdapter menuAdapter = new MenuAdapter(menuItems);
+
+        // 🔹 Kattintás a menüpontokra
+        menuAdapter.setOnMenuItemClickListener(item -> {
+            if(item.equals("Szettek")) {
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, new LegoSetsList())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        recyclerView.setAdapter(menuAdapter);
 
         return view;
     }
