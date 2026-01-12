@@ -14,7 +14,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     private List<String> items;
 
-    //  interface a kattintásra
+
     public interface OnMenuItemClickListener {
         void onMenuItemClick(String item);
     }

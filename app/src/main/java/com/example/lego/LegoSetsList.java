@@ -44,7 +44,7 @@ public class LegoSetsList extends Fragment {
 
         adapter = new LegoSetAdapter(getContext(), legoSetList);
 
-        //  Kattintás egy szettre → részletező fragment
+
         adapter.setOnLegoSetClickListener(legoSet -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("legoSet", legoSet);
@@ -68,7 +68,7 @@ public class LegoSetsList extends Fragment {
 
     private void loadLegoSets() {
         ApiService api = Retrofitclient.getInstance().create(ApiService.class);
-        api.getSets("Star Wars", 20)
+        api.getSets("Star Wars", 1000)
                 .enqueue(new Callback<LegoSetResponse>() {
                     @Override
                     public void onResponse(Call<LegoSetResponse> call, Response<LegoSetResponse> response) {

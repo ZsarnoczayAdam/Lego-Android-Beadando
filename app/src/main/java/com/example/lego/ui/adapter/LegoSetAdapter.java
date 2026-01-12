@@ -21,7 +21,7 @@ public class LegoSetAdapter extends RecyclerView.Adapter<LegoSetAdapter.LegoSetV
     private Context context;
     private List<LegoSet> legoSetList;
 
-    // 🔹 kattintás interface
+
     public interface OnLegoSetClickListener {
         void onLegoSetClick(LegoSet legoSet);
     }
@@ -69,7 +69,7 @@ public class LegoSetAdapter extends RecyclerView.Adapter<LegoSetAdapter.LegoSetV
         return legoSetList.size();
     }
 
-    // 🔹 ViewHolder
+
     public static class LegoSetViewHolder extends RecyclerView.ViewHolder {
 
         ImageView poster;

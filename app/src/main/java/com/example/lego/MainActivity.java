@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    // BottomNavigationView menüpontok kezelése
+
     private boolean onNavigationItemSelected(MenuItem item) {
         Fragment selectedFragment = null;
         int itemId = item.getItemId();
